@@ -1,14 +1,47 @@
 import { OrbitControls, Environment } from "@react-three/drei";
-import { onPlayerJoin, insertCoin, isHost, myPlayer } from "playroomkit";
+import { onPlayerJoin, insertCoin, isHost, myPlayer, Joystick } from "playroomkit";
 import Map from "./Map";
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 
+interface Player {
+  state: any;
+  joyStick: Joystick;
+}
 
 export const Experience = () => {
+  const [players, setPlayers] = useState<Player[]>([]);
 
-  useEffect(() => {}, []);
+  const gameStart = async () => {
+    await insertCoin();
+  }
 
-  
+  useEffect(() => {
+    gameStart()
+
+
+    // Listen for new players joining and create joystick controls for them
+    onPlayerJoin((state) => {
+    // Jostick should only create UI for local player
+    // Other players will be controlled remotely so only synchronize state
+      const joyStick = new Joystick(state, {
+        type: "angular",
+        buttons: [{ id: "fire", label: "Shoot"}]
+      })
+
+      const newPlayer: Player = {state, joyStick}
+      state.setState("health", 100);
+      state.setState("kills", 0);
+      state.setState("deaths", 0);
+      setPlayers((players: Player[]) => [...players, newPlayer])
+      state.onQuit(() => {
+        joyStick.destroy();
+        setPlayers((players: Player[]) => players.filter((p: Player) => p.state.id !== state.id));
+      });
+    });
+    
+  }, []);
+
+
   return (
     <>
       <directionalLight
