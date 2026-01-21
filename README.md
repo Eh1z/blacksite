@@ -1,12 +1,12 @@
-# Blacksite - Multiplayer 3D Shooter
+# PaintBallz - Multiplayer 3D Shooter
 
-A real-time multiplayer 3D shooter game built with React, TypeScript, and Vite, powered by Playroom for backend infrastructure and player hosting.
+A real-time multiplayer 3D shooter game built with React, TypeScript, and Nextjs, powered by Playroom for backend infrastructure and player hosting.
 
 ## Tech Stack
 
-- **Frontend**: React + TypeScript + Vite
+- **Frontend**: React + TypeScript + Next16
 - **Backend**: Playroom (multiplayer hosting & infrastructure)
-- **Build**: Vite with HMR support
+- **Build**: Next16 with HMR support
 - **Linting**: ESLint with TypeScript support
 
 ## Features
