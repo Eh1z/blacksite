@@ -78,6 +78,7 @@ export const Experience = () => {
           userPlayer={player.state.id === myPlayer()?.id}
         />
       ))}
+    
     </>
   );
 };

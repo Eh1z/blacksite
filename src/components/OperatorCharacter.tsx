@@ -8,7 +8,6 @@ import { useGraph } from "@react-three/fiber";
 import React, { useEffect, useMemo, useRef } from "react";
 import { Color, LoopOnce, MeshStandardMaterial } from "three";
 import { SkeletonUtils } from "three-stdlib";
-
 const WEAPONS = [
   "GrenadeLauncher",
   "AK",
@@ -29,7 +28,7 @@ const WEAPONS = [
 export function OperatorCharacter({
   color = "black",
   animation = "Idle",
-  weapon = "Pistol",
+  weapon = "AK",
   ...props
 }) {
   const group = useRef();
