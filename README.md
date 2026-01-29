@@ -1,6 +1,6 @@
 # PaintBallz - Multiplayer 3D Shooter
 
-A real-time multiplayer 3D shooter game built with React, TypeScript, and Nextjs, powered by Playroom for backend infrastructure and player hosting.
+PaintBallz is a real-time multiplayer 3D shooter built with React, TypeScript, and Next.js, featuring synchronized gameplay, live player sessions, and scalable multiplayer infrastructure powered by Playroom. Designed to demonstrate real-time systems, state synchronization, and interactive 3D experiences in the browser.
 
 ## Tech Stack
 
